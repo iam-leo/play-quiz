@@ -28,10 +28,35 @@ export class PreguntaComponent implements OnInit {
   }
 
   addClassOption(respuesta: Respuesta): any{
-    if(respuesta === this.preguntaService.selectedOption){
+    // Respuesta seleccionada y no confirmada
+    if(respuesta === this.preguntaService.selectedOption && !this.preguntaService.confirmedQuestion){
       return 'bg-yellow-400 border-yellow-500 text-black hover:bg-yellow-400 hover:border-yellow-500'
+    }
+
+    // Respuesta correcta y confirmada
+    if(respuesta === this.preguntaService.selectedOption && this.preguntaService.confirmedQuestion && this.preguntaService.selectedOption.isCorrect === 1){
+      return 'bg-green-500 border-green-600 text-black hover:bg-green-500 hover:border-green-600'
+    }
+
+    // Respuesta incorrecta y confirmada
+    if(respuesta === this.preguntaService.selectedOption && this.preguntaService.confirmedQuestion && this.preguntaService.selectedOption.isCorrect === 0){
+      return 'bg-red-600 border-red-700 text-white hover:text-white hover:bg-red-600 hover:border-red-700'
+    }
+  }
+
+  iconCorrect(respuesta: Respuesta): boolean{
+    if(respuesta === this.preguntaService.selectedOption && this.preguntaService.confirmedQuestion && this.preguntaService.selectedOption.isCorrect === 1){
+      return true;
     }else{
-      return
+      return false;
+    }
+  }
+
+  iconIncorrect(respuesta: Respuesta): boolean{
+    if(respuesta === this.preguntaService.selectedOption && this.preguntaService.confirmedQuestion && this.preguntaService.selectedOption.isCorrect === 0){
+      return true;
+    }else{
+      return false;
     }
   }
 }
