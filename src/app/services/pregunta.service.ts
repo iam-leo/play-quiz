@@ -7,6 +7,8 @@ import { Respuesta } from '../Models/Respuesta';
 })
 export class PreguntaService {
   indexPregunta = 0;
+  selectedOption: Respuesta = {name: '', isCorrect: 0};
+  disabledBtn = true;
 
   preguntas: Pregunta[] = [
     new Pregunta('¿Cuál es la capital de Canadá?', [
