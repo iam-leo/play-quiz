@@ -3,8 +3,8 @@
         <h3 class="mb-5 text-3xl italic text-white font-prompt">{{ getPregunta() }}</h3>
         <ul class="flex flex-col w-full mb-5 gap-y-3">
             <li
-                *ngFor="let respuesta of listPregunta[this.preguntaService.indexPregunta].answers"
-                (click)="respuestaSeleccionada(respuesta)"
+                *ngFor="let respuesta of listPregunta[this.preguntaService.indexPregunta].answers; let i = index"
+                (click)="respuestaSeleccionada(respuesta, i)"
                 [ngClass]="addClassOption(respuesta)"
                 class="relative w-full p-4 text-xl text-center text-white transition-colors border rounded-md cursor-pointer hover:bg-yellow-400 hover:text-black hover:border-yellow-500 font-prompt border-white/90">{{ respuesta.name }}
                 <!-- Check Icon -->

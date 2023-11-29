@@ -10,13 +10,15 @@ export class PreguntaService {
   selectedOption: Respuesta = {name: '', isCorrect: 0};
   disabledBtn = true;
   confirmedQuestion = false;
+  indexRespuesta = 0;
+  respuestasUsuarios: Array<number> = []
 
   preguntas: Pregunta[] = [
     new Pregunta('¿Cuál es la capital de Canadá?', [
       new Respuesta('Vancouver', 0),
       new Respuesta('Buenos Aires', 0),
-      new Respuesta('Toronto', 1),
-      new Respuesta('Lima', 0)
+      new Respuesta('Ottawa', 1),
+      new Respuesta('Toronto', 0)
     ]),
     new Pregunta('¿Cuántos Balones de Oro tiene Messi?', [
       new Respuesta('5', 0),

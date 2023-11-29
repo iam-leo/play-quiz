@@ -15,16 +15,20 @@ export class PreguntaComponent implements OnInit {
 
   ngOnInit(): void {
     this.listPregunta = this.preguntaService.getPreguntas();
-    console.log(this.listPregunta)
   }
 
   getPregunta(){
     return this.listPregunta[this.preguntaService.indexPregunta].description;
   }
 
-  respuestaSeleccionada(respuesta: Respuesta){
+  respuestaSeleccionada(respuesta: Respuesta, indexRta: number){
+    if(this.preguntaService.confirmedQuestion){
+      return;
+    }
+
     this.preguntaService.selectedOption = respuesta;
     this.preguntaService.disabledBtn = false;
+    this.preguntaService.indexRespuesta = indexRta;
   }
 
   addClassOption(respuesta: Respuesta): any{
