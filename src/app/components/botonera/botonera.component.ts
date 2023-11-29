@@ -35,6 +35,9 @@ export class BotoneraComponent {
 
       case 'Finalizar': {
         this.preguntaService.respuestasUsuarios.push(this.preguntaService.indexRespuesta);
+        this.preguntaService.selectedOption = {name: '', isCorrect: 0} ;
+        this.preguntaService.confirmedQuestion = false;
+        this.preguntaService.indexPregunta = 0;
         this.router.navigate(['/respuesta']);
       }
     }
