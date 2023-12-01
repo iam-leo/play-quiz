@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PreguntaComponent } from './components/pregunta/pregunta.component';
 import { RespuestaComponent } from './components/respuesta/respuesta.component';
 import { BotoneraComponent } from './components/botonera/botonera.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BotoneraComponent } from './components/botonera/botonera.component';
     NavbarComponent,
     PreguntaComponent,
     RespuestaComponent,
-    BotoneraComponent
+    BotoneraComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
